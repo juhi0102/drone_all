@@ -1,0 +1,12 @@
+from drone import drone
+drone=drone()
+drone.connect()
+#drone.calibrate_acceleration()
+#drone.calibrate_magnetometer()
+#trim(Roll,Pitch,Throttle,Yaw)
+drone.trim(0,0,0,0)
+drone.disarm()
+drone.takeoff()
+drone.throttle_speed(7,1) #(value, Duration)
+drone.flip()
+drone.land()
