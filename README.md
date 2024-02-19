@@ -1,54 +1,43 @@
+Tutorial: Using Pluto Python Wrapper to Control Your Drone
+In this tutorial, we'll walk you through the steps of using the Pluto Python Wrapper to control your drone. Whether you're a beginner or an experienced enthusiast, you'll learn how to install the wrapper, utilize different control methods like keyboard, joystick, and voice commands, and troubleshoot common issues.
+1. Installation
+Begin by cloning the Pluto Python Wrapper repository from GitHub. Open your terminal and execute the following command:
+Copy code
+git clone https://github.com/csaail/Python-Wrapper.git 
+2. Keyboard Control
+To control your drone via the keyboard, follow these steps:
+•	For Windows:
+Copy code
+python keyboard_test.py 
+•	For Linux (Ubuntu) and MacOS:
+Copy code
+python keymac_test.py 
+This script assigns drone commands to specific keys. For instance:
+•	Press spacebar to arm or disarm the drone.
+•	Use 'w' to ascend and 's' to descend.
+•	Press 'q' to take off and 'e' to land.
+•	Utilize 'a' to yaw left and 'd' to yaw right.
+•	Arrow keys for directional movement.
+3. Joystick Control
+If you prefer joystick control, follow the appropriate steps based on your operating system:
+•	For Windows: Make sure you have the required libraries installed, then run:
+Copy code
+python joystick.py 
+•	For Linux (Ubuntu): Ensure you have the Evdev library installed, then execute:
+Copy code
+python joy_ubuntu.py 
+•	For MacOS: With Pygame library installed, run:
+Copy code
+python joystick.py 
+4. Voice Control
+Control your drone using voice commands with the following steps:
+•	Download a pre-trained voice model from Vosk and specify its path in voice_cmd.py.
+•	Run the script:
+Copy code
+python voice_cmd.py 
+Currently, common commands include 'hello' to arm, 'take off' to ascend, and 'land' to descend. Customize these as desired.
+5. Troubleshooting
+If you encounter any issues during installation or operation, refer to the README file in the repository for troubleshooting guidance. Ensure all dependencies are installed correctly and follow the instructions diligently.
+Conclusion
+Congratulations! You've successfully learned how to control your drone using various methods with the Pluto Python Wrapper. Experiment with different commands and enjoy exploring the capabilities of your drone. If you encounter any challenges, don't hesitate to consult the documentation or seek assistance from the community. Happy flying!
 
-# Pluto Python Wrapper
-
-This is a special python wrapper for pluto drone equipped with the Lewei camera.
-
-Go ahead and pull up the terminal and type:
-```bash
-git clone https://github.com/csaail/Python-Wrapper.git
-```
-
-In the script, drone is the object created of class drone which will be used to control the drone. Assuming that the name of the object created is drone, follow the lines below for using the wrapper.
-
-```python
-1. Connect The drone:
-from drone import drone
-drone = drone()
-drone.connect()
-
-2. Trim the drone:
-drone.trim(Roll, Pitch, Throttle, Yaw) +ve, ve values depending on the trim
-Example: drone.trim(0, 0, 0, 0)
-
-3. Arm the drone:
-This is typically done automatically upon connection and takeoff.
-drone.arm()
-
-4. Disarm the drone:
-drone.disarm()
-
-5. Set throttle speed:
-drone.throttle_speed(value, Duration)
-Example: drone.throttle_speed(5, 1) # Increase throttle speed by 5 for 1 second
-
-6. Takeoff:
-drone.takeoff()
-
-7. Land the drone:
-drone.land()
-
-8. Roll, Pitch, Yaw:
-Functions like roll_speed, pitch_speed, and yaw_speed are available for controlling the drone's
-movements.
-• drone.roll_speed(50,2) # Increase roll speed by 50 for 2 sec
-• drone.pitch_speed(50,2) # Increase pitch speed by 50 for 2 sec
-• drone.yaw_speed(50,2) # Increase yaw speed by 50 for 2 sec
-
-9. Get Roll, Pitch & Yaw values:
-Functions like get_roll, get_pitch, get_yaw are available for retrieving the drone's roll and pitch angles.
-
-10. Get Sensor values (Magnetometer, Gyroscope, Accelerometer):
-Magnetometer: get_mag_x(), get_mag_y(), get_mag_z()
-Gyroscope: get_gyro_x(), get_gyro_y(), get_gyro_z()
-Accelerometer: get_acc_x(), get_acc_y(), get_acc_z()
-```
