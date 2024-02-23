@@ -29,13 +29,28 @@ while True:
         # Execute drone commands based on recognized speech
         if "start" in recognized_text:
             my_pluto.arm()
-        elif "take off" in recognized_text:
+        elif "fly" in recognized_text:
             my_pluto.take_off()
         elif "stop" in recognized_text:
             my_pluto.disarm()
         elif "land" in recognized_text:
             my_pluto.land()
-        
+        elif "up" in recognized_text:
+            my_pluto.increase_height()
+        elif "down" in recognized_text:
+            my_pluto.decrease_height()
+        elif "forward" in recognized_text:
+            my_pluto.forward()
+        elif "back" in recognized_text:
+            my_pluto.backward()
+        elif "left" in recognized_text:
+             my_pluto.left()
+        elif "right" in recognized_text:
+            my_pluto.right()
+        elif "yes" in recognized_text:
+            my_pluto.left_yaw()
+        elif "no" in recognized_text:
+            my_pluto.right_yaw()
         
         # Add more commands as needed
         
