@@ -1,0 +1,11 @@
+from drone import drone
+drone=drone()
+drone.connect()
+drone.calibrate_acceleration()
+drone.disarm()
+drone.takeoff()
+altitude = drone.get_height()
+battery_voltage = drone.get_battery()
+print(f"Altitude: {altitude} cm")
+print(f"Battery Voltage: {battery_voltage} volts")
+drone.disarm()
