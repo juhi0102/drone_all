@@ -1,15 +1,38 @@
-from drone import drone
-import time
-drone=drone()
-drone.connect()
-drone.calibrate_acceleration()
-drone.disarm()
-drone.takeoff()
-time.sleep(2)  # Wait for takeoff
-# Fly in a square pattern
-for _ in range(4):
-    drone.roll_speed(50, 5)  # Roll to the right for 5 seconds
-    drone.yaw_speed(90, 1)  # Rotate 90 degrees clockwise in 1 second
-# Land after completing the square flight
-drone.land()
-drone.disconnect()
+my_drone = drone()
+
+    print("Initializing...")
+    my_drone.trim(0, 0, 0, 0)
+    my_drone.arm()
+    print("Drone is armed.")
+
+    print("Taking off...")
+    my_drone.takeoff()
+    print("Drone is airborne.")
+
+    print("Performing square flight path...")
+
+    # Fly forward for 5 seconds
+    my_drone.pitch_speed(100, 5)
+
+    # Turn right for 2 seconds
+    my_drone.yaw_speed(100, 2)
+
+    # Fly forward for 5 seconds
+    my_drone.pitch_speed(100, 5)
+
+    # Turn right for 2 seconds
+    my_drone.yaw_speed(100, 2)
+
+    # Fly forward for 5 seconds
+    my_drone.pitch_speed(100, 5)
+
+    # Turn right for 2 seconds
+    my_drone.yaw_speed(100, 2)
+
+    # Fly forward for 5 seconds
+    my_drone.pitch_speed(100, 5)
+
+    # Land
+    print("Landing...")
+    my_drone.land()
+    print("Drone has landed.")
