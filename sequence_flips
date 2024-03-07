@@ -1,0 +1,27 @@
+from drone_module import drone
+
+def main():
+    my_drone = drone()
+
+    print("Initializing...")
+    my_drone.trim(0, 0, 0, 0)
+    my_drone.arm()
+    print("Drone is armed.")
+
+    print("Taking off...")
+    my_drone.takeoff()
+    print("Drone is airborne.")
+
+    print("Performing flips...")
+
+    # Perform three flips
+    for _ in range(3):
+        my_drone.flip()
+
+    # Land
+    print("Landing...")
+    my_drone.land()
+    print("Drone has landed.")
+
+if __name__ == "__main__":
+    main()
